@@ -6,24 +6,23 @@ module.exports = {
       SFCBlocks: {
         template: true,
         script: false,
-        style: true,
+        style: true
       },
       fileInfoOptions: {
-        withNodeModules: false,
-      },
-    },
+        withNodeModules: false
+      }
+    }
   },
   rules: {
     'prettier-vue/prettier': [
       'error',
       {
-        // Override all options of `prettier` here
-        // @see https://prettier.io/docs/en/options.html
-        printWidth: 130,
         singleQuote: true,
         semi: false,
-        trailingComma: 'es5',
-      },
+        trailingComma: 'none',
+        printWidth: 130,
+        bracketSpacing: true
+      }
     ],
     'no-console': 0,
     'space-before-function-paren': ['error', 'always'],
@@ -43,19 +42,19 @@ module.exports = {
       'error',
       {
         singleline: {
-          max: 4,
+          max: 4
         },
         multiline: {
-          max: 1,
-        },
-      },
+          max: 1
+        }
+      }
     ],
     'vue/attribute-hyphenation': [
       'error',
       'always',
       {
-        ignore: ['viewBox'],
-      },
+        ignore: ['viewBox']
+      }
     ],
     'no-debugger': 0,
     'max-len': ['error', { code: 130 }],
@@ -67,6 +66,6 @@ module.exports = {
     'import/no-unresolved': 'off',
     'prefer-destructuring': ['error', { object: true, array: false }],
     'vue/multi-word-component-names': 'off',
-    'no-tabs': 'off',
-  },
+    'no-tabs': 'off'
+  }
 }
