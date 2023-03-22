@@ -8,7 +8,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  props:{
+  props: {
     activeIndex: {
       default: 0
     },
@@ -16,9 +16,9 @@ export default defineComponent({
       default: false
     }
   },
-  data (){
+  data () {
     return {
-      items: [0,1,2,3,4],
+      items: [0, 1, 2, 3, 4]
     }
   }
 })
@@ -41,7 +41,7 @@ export default defineComponent({
     background: var(--color);
   }
   &.dark {
-    --color: #25252573;
+    --color: #484848;
   }
 }
 </style>

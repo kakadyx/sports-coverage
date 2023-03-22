@@ -1,30 +1,32 @@
 <template>
   <article class="content">
     <h1 class="title">
-      Покрытие <br />
+      Покрытие <br>
       теннисного корта
     </h1>
     <p class="subtitle">
       Акриловые покрытия всё чаще встречаются на универсальных спортивных площадках. Мы используем в работе продукцию Mapei,
       благодаря чему наши покрытия наиболее надежные и неприхотливые в эксплуатации.
     </p>
-    <button class="buy-btn">Рассчитать стоимость</button>
+    <button class="buy-btn">
+      Рассчитать стоимость
+    </button>
     <div class="indication">
       <BlockIndicator :active="0" />
-      <hr />
+      <hr>
     </div>
   </article>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import BlockIndicator from "~/components/common/BlockIndicator.vue"
+import BlockIndicator from '~/components/common/BlockIndicator.vue'
 
-export default defineComponent ({
-  components: {BlockIndicator},
+export default defineComponent({
+  components: { BlockIndicator },
   setup () {
     return {}
-  },
+  }
 })
 </script>
 
@@ -74,9 +76,9 @@ export default defineComponent ({
     backdrop-filter: blur(1px);
     border-radius: 40px;
     padding: 16px 60px;
-    transition: 0.3s all;
+    transition: 0.3s background, 0.3s color;
     &:hover {
-      transition: 0.3s all;
+      transition: 0.3s background, 0.3s color;
       background: rgba(255, 255, 255, 1);
       color: black;
     }
@@ -87,12 +89,15 @@ export default defineComponent ({
   right: var(--side-offset-main);
   top: 320px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   hr {
-    transform: translateX(-50%);
-    left: 50%;
-    margin: 0 auto;
+    margin: 0;
     width: 1px;
     height: 400px;
+    border: none;
+    background: white;
   }
 }
 </style>

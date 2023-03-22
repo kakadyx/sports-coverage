@@ -4,7 +4,7 @@ module.exports = {
   settings: {
     'prettier-vue': {
       SFCBlocks: {
-        template: true,
+        template: false,
         script: false,
         style: true
       },
@@ -12,6 +12,10 @@ module.exports = {
         withNodeModules: false
       }
     }
+  },
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    parser: '@typescript-eslint/parser'
   },
   rules: {
     'prettier-vue/prettier': [

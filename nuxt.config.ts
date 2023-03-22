@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { fileURLToPath } from 'url'
-
+import svgLoader from 'vite-svg-loader'
 export default defineNuxtConfig({
   modules: ['@nuxtjs/google-fonts'],
   alias: {
@@ -12,7 +12,10 @@ export default defineNuxtConfig({
     families: {
       'Russo+One': [400],
       Roboto: [400, 600],
-      Rubik: [300, 400]
+      Rubik: [300, 400, 500]
     }
+  },
+  vite: {
+    plugins: [svgLoader()]
   }
 })
