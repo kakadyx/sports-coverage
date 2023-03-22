@@ -1,5 +1,5 @@
 <template>
-  <article class="content">
+  <article id="main" class="content">
     <h1 class="title">
       Покрытие <br>
       теннисного корта

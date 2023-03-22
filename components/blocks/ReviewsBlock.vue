@@ -1,5 +1,5 @@
 <template>
-  <div class="reviews-block">
+  <article id="reviews" class="reviews-block">
     <h3 class="title">
       Отзывы
     </h3>
@@ -30,7 +30,7 @@
       <BlockIndicator :active-index="3" />
       <hr>
     </div>
-  </div>
+  </article>
 </template>
 
 <script>
@@ -172,6 +172,7 @@ export default defineComponent({
     width: 1px;
     background: white;
     margin: 0;
+    border: none;
   }
 }
 </style>

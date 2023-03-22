@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article id="about">
     <BenefitsTopBlock />
     <div class="content">
       <div class="left-part">
