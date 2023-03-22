@@ -4,23 +4,31 @@
       Отзывы
     </h3>
     <div class="slider-wrap">
-      <div class="arrow-wrap" @click="swiper.slidePrev()">
-        <ArrowPrev />
+      <div class="slider-content">
+        <div class="arrow-wrap" @click="slideTo(-1)">
+          <ArrowPrev />
+        </div>
+        <swiper
+          :loop="true"
+          :slides-per-view="1"
+          @swiper="onSwiper"
+        >
+          <swiper-slide v-for="(slide, i) in items" :key="i">
+            <div class="slide">
+              <p>{{ slide.text }}</p>
+              <p>{{ slide.author }}</p>
+            </div>
+          </swiper-slide>
+        </swiper>
+        <div class="arrow-wrap" @click="slideTo(1)">
+          <ArrowPrev class="arrow-next" />
+        </div>
       </div>
-      <swiper
-        :slides-per-view="1"
-        @swiper="onSwiper"
-      >
-        <swiper-slide v-for="(slide, i) in items" :key="i">
-          <div class="slide">
-            <p>{{ slide.text }}</p>
-            <p>{{ slide.author }}</p>
-          </div>
-        </swiper-slide>
-      </swiper>
-      <div class="arrow-wrap" @click="swiper.slideNext()">
-        <ArrowPrev class="arrow-next" />
-      </div>
+    </div>
+    <div class="decoration">
+      <ArrowBottom class="arrow" />
+      <BlockIndicator :active-index="3" />
+      <hr>
     </div>
   </div>
 </template>
@@ -32,16 +40,23 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 
 import ArrowPrev from 'images/arrow-prev.svg'
+import ArrowBottom from 'images/arrow-bottom.svg'
+import BlockIndicator from '~/components/common/BlockIndicator.vue'
 export default defineComponent({
-  components: { ArrowPrev, Swiper, SwiperSlide },
+  components: { BlockIndicator, ArrowPrev, ArrowBottom, Swiper, SwiperSlide },
   setup () {
-    const swiper = ref()
+    const swiper = ref(null)
     const onSwiper = swip => {
       swiper.value = swip
     }
 
+    const slideTo = to => {
+      if (to === -1) { swiper.value.slidePrev() } else { swiper.value.slideNext() }
+    }
+
     return {
       onSwiper,
+      slideTo,
       swiper
     }
   },
@@ -83,7 +98,8 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/assets/mixins/fonts.scss';
 .reviews-block {
-  padding-block: 180px 110px;
+  position: relative;
+  padding-block: 180px 150px;
   background: linear-gradient(rgba(31, 29, 29, 0.61), rgba(31, 29, 29, 0.61)), url('@/assets/images/courts.png');
   background-size: 100%;
   color: white;
@@ -95,9 +111,11 @@ export default defineComponent({
     text-align: center;
   }
   .slider-wrap {
-    display: flex;
-    align-items: center;
     padding-inline: calc(var(--side-offset-secondary) + var(--side-offset-main));
+    .slider-content {
+      display: flex;
+      align-items: center;
+    }
     .slide {
       margin-inline: 43px;
       min-height: 240px;
@@ -137,6 +155,23 @@ export default defineComponent({
     background: #cbcbcb;
     border-color: #cbcbcb;
     --svg-color: #4c292c;
+  }
+}
+.decoration {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: var(--side-offset-main);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  --svg-color: white;
+  align-items: center;
+  hr {
+    height: 152px;
+    width: 1px;
+    background: white;
+    margin: 0;
   }
 }
 </style>
