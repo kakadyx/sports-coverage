@@ -13,7 +13,7 @@
     </div>
     <div class="decoration">
       <ArrowBottom class="arrow" />
-      <BlockIndicator :active-index="3" />
+      <BlockIndicator :active-index="4" />
       <hr>
     </div>
   </div>
